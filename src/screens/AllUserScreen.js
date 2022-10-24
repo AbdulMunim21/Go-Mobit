@@ -20,7 +20,7 @@ const AllUserScreen = () => {
 
   const handleChange = (event) => {
     setSelectedUser(event.target.value);
-  };
+  }; 
 
   useEffect(() => {
     getUsers();
