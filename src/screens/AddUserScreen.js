@@ -95,12 +95,7 @@ const AddUserScreen = () => {
   };
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100%",
-        height: "100%",
-      }}
+      style={styles.root}
     >
       <Snackbar
         open={open}
@@ -113,36 +108,8 @@ const AddUserScreen = () => {
           {message}
         </Alert>
       </Snackbar>
-      <Card
-        sx={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <CardContent
-          style={{
-            margin: "20px",
-            flexDirection: "column",
-            display: "flex",
-            width: "100%",
-            height: "90%",
-            padding: "50px",
-          }}
-        >
-          {/* <Box
-            component="form"
-            style={{
-              margin: "20px",
-              flexDirection: "column",
-              display: "flex",
-              width: "100%",
-              height: "80%",
-              padding: "50px",
-            }}
-            autoComplete="on"
-          > */}
+      <Card sx={styles.cardStyle}>
+        <CardContent style={styles.cardContentStyle}>
           <TextField
             id="outlined-basic"
             error={name.length === 0 ? true : false}
@@ -150,11 +117,7 @@ const AddUserScreen = () => {
             label={"Name"}
             defaultValue={name}
             variant="outlined"
-            style={{
-              display: "flex",
-              marginTop: "20px",
-              width: "100%",
-            }}
+            style={styles.textFieldStyle}
             required
             onChange={(e) => {
               setName(e.target.value);
@@ -173,11 +136,7 @@ const AddUserScreen = () => {
             defaultValue={email}
             variant="outlined"
             required
-            style={{
-              display: "flex",
-              marginTop: "20px",
-              width: "100%",
-            }}
+            style={styles.textFieldStyle}
             onChange={(e) => {
               setEmail(e.target.value);
               if (!e.target.value.includes("@")) {
@@ -195,11 +154,7 @@ const AddUserScreen = () => {
             defaultValue={cell}
             variant="outlined"
             required
-            style={{
-              display: "flex",
-              marginTop: "20px",
-              width: "100%",
-            }}
+            style={styles.textFieldStyle}
             onChange={(e) => {
               setCell(e.target.value);
               if (e.target.value.length === 11) {
@@ -217,11 +172,7 @@ const AddUserScreen = () => {
             defaultValue={age}
             variant="outlined"
             required
-            style={{
-              display: "flex",
-              width: "100%",
-              marginTop: "20px",
-            }}
+            style={styles.textFieldStyle}
             onChange={(e) => {
               console.log(e.target.value);
               setAge(e.target.value);
@@ -237,28 +188,13 @@ const AddUserScreen = () => {
               }
             }}
           />
-          {/* </Box> */}
-          <div
-            style={{
-              display: "flex",
-              width: "100%",
-              height: "10%",
-              marginTop: "50px",
-              justifyContent: "flex-end",
-            }}
-          >
+
+          <div style={styles.buttonContainerStyle}>
             <Button
               onClick={onSubmit}
               variant="contained"
               type="submit"
-              style={{
-                display: "flex",
-                width: "20%",
-                padding: "20px",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "25px",
-              }}
+              style={styles.buttonStyle}
             >
               Submit
             </Button>
@@ -267,6 +203,47 @@ const AddUserScreen = () => {
       </Card>
     </div>
   );
+};
+
+const styles = {
+  buttonStyle: {
+    display: "flex",
+    width: "20%",
+    padding: "20px",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "25px",
+  },
+  buttonContainerStyle: {
+    display: "flex",
+    width: "100%",
+    height: "10%",
+    marginTop: "50px",
+    justifyContent: "flex-end",
+  },
+  textFieldStyle: {
+    display: "flex",
+    width: "100%",
+    marginTop: "20px",
+  },
+  cardContentStyle:{
+            margin: "20px",
+            flexDirection: "column",
+            display: "flex",
+            width: "100%",
+            height: "90%",
+            padding: "50px",
+          },cardStyle:{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+        }, root:{
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        height: "100%",
+      }
 };
 
 export default AddUserScreen;

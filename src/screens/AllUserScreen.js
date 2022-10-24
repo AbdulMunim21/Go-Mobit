@@ -55,32 +55,9 @@ const AllUserScreen = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flex: 1,
-        width: "100%",
-        height: "100vh",
-        flexDirection: "column",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          width: "100%",
-          height: "10vh",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <FormControl
-          variant="filled"
-          style={{
-            display: "flex",
-            width: "75%",
-          }}
-        >
+    <div style={styles.root}>
+      <div style={styles.nonTableContainer}>
+        <FormControl variant="filled" style={styles.formTableStyle}>
           <InputLabel id="demo-simple-select-filled-label">Users</InputLabel>
           <Select
             labelId="demo-simple-select-filled-label"
@@ -101,12 +78,7 @@ const AllUserScreen = () => {
           </Select>
         </FormControl>
         <SearchIcon
-          style={{
-            cursor: "pointer",
-            fontSize: "50px",
-            display: "flex",
-            width: "10%",
-          }}
+          style={styles.iconStyle}
           onClick={() => {
             getUsers();
           }}
@@ -151,6 +123,34 @@ const AllUserScreen = () => {
       </TableContainer>
     </div>
   );
+};
+
+const styles = {
+  root: {
+    display: "flex",
+    flex: 1,
+    width: "100%",
+    height: "100vh",
+    flexDirection: "column",
+  },
+  nonTableContainer: {
+    display: "flex",
+    width: "100%",
+    height: "10vh",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  formTableStyle: {
+    display: "flex",
+    width: "75%",
+  },
+  iconStyle: {
+    cursor: "pointer",
+    fontSize: "50px",
+    display: "flex",
+    width: "10%",
+  },
 };
 
 export default AllUserScreen;
